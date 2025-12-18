@@ -1,0 +1,89 @@
+/product-order-system
+│
+├─ /public                ← veřejná část (DOCUMENT ROOT)
+│   ├─ index.php           ← front controller
+│   ├─ .htaccess
+│   │
+│   ├─ /assets
+│   │   ├─ /css
+│   │   │   ├─ main.css
+│   │   │   ├─ admin.css
+│   │   │   └─ forms.css
+│   │   │
+│   │   ├─ /js
+│   │   │   ├─ app.js
+│   │   │   ├─ products.js
+│   │   │   ├─ orders.js
+│   │   │   └─ import.js
+│   │   │
+│   │   └─ /uploads
+│   │       ├─ previews/
+│   │       └─ imports/
+│   │
+│   └─ /assets/img
+│
+├─ /app                   ← aplikační logika
+│   ├─ /core
+│   │   ├─ Database.php
+│   │   ├─ Router.php
+│   │   ├─ Controller.php
+│   │   └─ Auth.php
+│   │
+│   ├─ /controllers
+│   │   ├─ ProductController.php
+│   │   ├─ OrderController.php
+│   │   ├─ ImportController.php
+│   │   ├─ StatisticsController.php
+│   │   └─ AuthController.php
+│   │
+│   ├─ /models
+│   │   ├─ Product.php
+│   │   ├─ Order.php
+│   │   ├─ OrderItem.php
+│   │   ├─ Customer.php
+│   │   ├─ ApprovalStatus.php
+│   │   └─ OrderStatus.php
+│   │
+│   ├─ /services
+│   │   ├─ ImportService.php
+│   │   ├─ StatisticsService.php
+│   │   └─ CalculationService.php
+│   │
+│   └─ /views
+│       ├─ /layout
+│       │   ├─ header.php
+│       │   ├─ footer.php
+│       │   └─ sidebar.php
+│       │
+│       ├─ /products
+│       │   ├─ list.php
+│       │   ├─ create.php
+│       │   └─ edit.php
+│       │
+│       ├─ /orders
+│       │   ├─ list.php
+│       │   ├─ detail.php
+│       │   └─ create.php
+│       │
+│       ├─ /import
+│       │   └─ index.php
+│       │
+│       └─ /statistics
+│           └─ index.php
+│
+├─ /config
+│   └─ database.php
+│
+├─ /database
+│   ├─ schema.sql
+│   └─ seed.sql
+│
+└─ README.md
+
+V každé složce je soubor poznámka.txt, kde zapisuju jednotlivé myšlenky, postupy a kroky - pro přehlednost
+V souborech chci mít komentáře stručné a k věci, ty neslouží pro moje osobní vyjádření, ale pro větší přehlednost a možnost pochopení
+
+//ROZVAHA//
+První krok = vytvořím databázi. Celý systém stojí na datech a je daleko snasží pracovat, když vím, s čím pracuji
+Druhý krok = config database - nastavení připojení
+Třetí krok = core/Database - načte config a vrátí PDO, doporučeno ve videu to udělat takto

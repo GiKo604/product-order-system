@@ -1,0 +1,61 @@
+Databáze: integraf_db
+tabulky:
+        Users:
+                id
+                name
+                email
+                password
+                role (admin / grafik / uživatel)
+                created_at
+                updated_at
+        
+        customers:
+                id
+                name
+                client_code
+                email
+                created_at
+        
+        products:
+                id
+                customer_id (FK → customers.id)
+                our_code (interní označení produktu)
+                client_code (klientský kód produktu, není FK)
+                size
+                cut_name (číslo výseku, kód montáže, ks na TA)
+                foil_type
+                color_coverage (procenta)
+                ean_code
+                preview_file
+                approval_status_id (FK → approval_statuses.id)
+                created_at
+                updated_at
+        
+        approval_statuses:
+                id
+                name (schváleno / neschváleno / v procesu / pracuje grafik / chyba)
+
+        orders:
+                id
+                customer_id (FK → customers.id)
+                status_id (FK → order_statuses.id)
+                created_at
+                updated_at
+
+        order_items:
+                id
+                order_id (FK → orders.id)
+                product_id (FK → products.id)
+                quantity
+
+        order_statuses:
+                id
+                name (grafik / schválení / pozastaveno / hotovo / chyba)
+
+        order_statistics:
+                id
+                product_id (FK → products.id)
+                order_date
+                quantity
+
+role enum jsem se naučil teprve u tohoto projektu, zajímalo mě, zda se dají role přiřadit jako na nějakém herním serveru - způsobí to, že je výběr rolí omezen jen na zmíněné, ještě mě napadlo, udělat popřípadě další tabulku s rolemi, kvůli tomu, abych mohl přidat kdykoliv další roli, dávalo by to větší smysl, než být nucen to dělat přes alter table

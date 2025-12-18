@@ -1,0 +1,30 @@
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+/vendor/
+composer.lock
+
+# Uploads
+/public/assets/uploads/*
+!/public/assets/uploads/.gitkeep
+!/public/assets/uploads/previews/.gitkeep
+!/public/assets/uploads/imports/.gitkeep
+
+# Config
+/config/database.php
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
